@@ -1,0 +1,72 @@
+version: "3.8"
+
+services:
+  # LEAVE-SERVICE (Spring Boot Backend)
+  leave-service:
+    build:
+      context: ./leave_backend  # Adjust to your Leave Service directory
+      dockerfile: Dockerfile
+    image: leave_management_v1_01  # Consistent with your naming
+    container_name: leavecontainer
+    ports:
+      - "8080:8080"  # Dynamic port from .env
+    env_file:
+      - custom.env  # Load variables from .env
+    environment:
+      SPRING_DATASOURCE_URL: "${DB_URL}"
+      SPRING_DATASOURCE_USERNAME: "${DB_USERNAME}"
+      SPRING_DATASOURCE_PASSWORD: "${DB_PASSWORD}"
+      SERVER_PORT: "${LEAVE_SERVICE_PORT}"  # Align Spring Boot port with .env
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  # USER-SERVICE (Spring Boot Backend)
+  user-service:
+    build:
+      context: ./UserProfile  # Adjust to your User Service directory
+      dockerfile: Dockerfile
+    image: user_management_v1_01  # Consistent with your naming
+    container_name: leaveusercontainer
+    ports:
+      - "8082:8082"  # Dynamic port from .env
+    env_file:
+      - custom.env  # Load variables from .env
+    environment:
+      SPRING_DATASOURCE_URL: "${DB_URL}"
+      SPRING_DATASOURCE_USERNAME: "${DB_USERNAME}"
+      SPRING_DATASOURCE_PASSWORD: "${DB_PASSWORD}"
+      SERVER_PORT: "${USER_SERVICE_PORT}"  # Align Spring Boot port with .env
+    depends_on:
+      - leave-service  # User Service depends on Leave Service
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  # FRONTEND (React Application)
+  frontend:
+    build:
+      context: ./leave_frontend  # Adjust to your Frontend directory
+      dockerfile: Dockerfile
+      args:  # Build-time arguments for React
+        REACT_APP_API_URL_LEAVE: "${REACT_APP_API_URL_LEAVE}"
+        REACT_APP_API_URL_USER: "${REACT_APP_API_URL_USER}"
+    image: frontend_v1_01  # Consistent with your naming
+    container_name: leave-react-frontend
+    ports:
+      - "3000:3000"  # Map external port from .env to internal 80
+    env_file:
+      - custom.env  # Load variables from .env
+    environment:
+      REACT_APP_API_URL_LEAVE: "${REACT_APP_API_URL_LEAVE}"  # Runtime environment variable
+      REACT_APP_API_URL_USER: "${REACT_APP_API_URL_USER}"    # Runtime environment variable
+    depends_on:
+      - leave-service
+      - user-service
+    networks:
+      - app-network
+    restart: unless-stopped
+
+networks:
+  app-network:
+    driver: bridge
