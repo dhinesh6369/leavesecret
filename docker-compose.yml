@@ -46,7 +46,7 @@ services:
   # FRONTEND (React Application)
   frontend:
     build:
-      context: ./leave_frontend  # Adjust to your Frontend directory
+      context: ./frontend  # Adjust to your Frontend directory
       dockerfile: Dockerfile
       args:  # Build-time arguments for React
         REACT_APP_API_URL_LEAVE: "${REACT_APP_API_URL_LEAVE}"
