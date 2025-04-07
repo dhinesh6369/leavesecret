@@ -1,0 +1,36 @@
+/* Dashboard Styling */
+.dashboard-card {
+    border: none;
+    border-radius: 15px;
+    background: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+  }
+  
+  .dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .dashboard-card .card-title {
+    color: #007bff;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  .dashboard-card .card-text {
+    color: #333;
+    font-weight: 700;
+  }
+  
+  h2.text-center {
+    color: #007bff;
+    font-weight: 600;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .dashboard-card {
+      margin-bottom: 1.5rem;
+    }
+  }

@@ -1,0 +1,63 @@
+/* Centering the form */
+.add-employee-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    background-color: #f4f4f4;
+    padding: 20px;
+  }
+  
+  /* Form card */
+  .add-employee-card {
+    width: 400px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* Form title */
+  .title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Form fields */
+  .add-employee-card label {
+    display: block;
+    text-align: left;
+    font-weight: 500;
+    margin-top: 10px;
+    color: #555;
+  }
+  
+  .add-employee-card input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  /* Submit button */
+  .add-employee-card button {
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .add-employee-card button:hover {
+    background-color: #0056b3;
+  }
+  

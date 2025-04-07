@@ -1,0 +1,111 @@
+.leave-table {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.leave-table th {
+  background: #007bff;
+  color: white;
+  text-align: center;
+}
+
+.leave-table td {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.leave-table .btn-outline-primary {
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.leave-table .btn-outline-primary:hover {
+  background: #007bff;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.modal-content {
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.modal-header {
+  background: #007bff;
+  color: white;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.modal-title {
+  font-weight: 600;
+}
+
+.modal-body p {
+  margin: 0.5rem 0;
+  color: #333;
+}
+
+.modal-body strong {
+  color: #007bff;
+}
+
+.action-btn {
+  border-radius: 10px;
+  padding: 8px 20px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .leave-table {
+    font-size: 0.9rem;
+  }
+
+  .action-btn {
+    padding: 6px 15px;
+  }
+}
+.approve-btn {
+  background-color: #28a745; /* Green color */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 10px;
+}
+
+.approve-btn:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+.reject-btn {
+  background-color: #dc3545; /* Red color */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.reject-btn:hover {
+  background-color: #c82333; /* Darker red on hover */
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}

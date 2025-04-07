@@ -1,0 +1,15 @@
+.profile-card {
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background: white;
+    padding: 2rem;
+  }
+  
+  .profile-card p {
+    margin: 0.5rem 0;
+    color: #333;
+  }
+  
+  .profile-card strong {
+    color: #007bff;
+  }
